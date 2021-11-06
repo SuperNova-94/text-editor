@@ -10,7 +10,7 @@
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
  */
- function updateText(){
+  updateText = () => {
     let text = document.getElementById("text-input").value;
     document.getElementById("text-output").innerText = text;
   }
@@ -22,7 +22,7 @@
    * HINT: Use the classList property
    * HINT: Toggle .active class for the button
    */
-  function makeBold(elem){
+  makeBold = (elem) => {
     elem.classList.toggle("active");
     document.getElementById('text-output').classList.toggle("bold");
   }
@@ -30,7 +30,7 @@
   /**
    * Toggle the italic class for the output text
    */
-  function makeItalic(elem){
+  makeItalic = (elem) => {
     elem.classList.toggle("active");
     document.getElementById('text-output').classList.toggle("italic");
   }
@@ -41,7 +41,7 @@
    * HINT: Use the classList property
    * HINT: Use contains, remove, and add functions
    */
-  function makeUnderline(elem){
+  makeUnderline = (elem) => {
     elem.classList.toggle("active");
     let formattedText = document.getElementById('text-output');
     if (formattedText.classList.contains('underline')) {
@@ -58,12 +58,11 @@
    * HINT: Use the style property of the element
    * HINT: Make sure to untoggle the active state for all other align buttons
    */
-  function alignText(elem, alignType){
+  alignText = (elem, alignType) => {
     document.getElementById('text-output').style.textAlign = alignType;
     let buttonsList = document.getElementsByClassName('align');
-    for(let i = 0; i < buttonsList.length; i++){
-      buttonsList[i].classList.remove('active');
-    }
-
+    for(let button of buttonsList) {
+      button.classList.remove('active');
+    };
     elem.classList.add('active');
   }
